@@ -51,10 +51,21 @@ class Normal:
         pi = 3.1415926536
         e = 2.7182818285
 
-        # Coefficient: 1 / (stddev * sqrt(2 * pi))
         coefficient = 1 / (self.stddev * ((2 * pi) ** 0.5))
-
-        # Exponent: -0.5 * ((x - mean) / stddev)^2
         exponent = -0.5 * (((x - self.mean) / self.stddev) ** 2)
 
         return coefficient * (e ** exponent)
+
+    def cdf(self, x):
+        """
+        Calculates the value of the CDF for a given x-value
+        """
+        pi = 3.1415926536
+        y = (x - self.mean) / (self.stddev * (2 ** 0.5))
+
+        # Taylor series approximation for erf(y)
+        erf = (2 / (pi ** 0.5)) * (
+            y - (y ** 3) / 3 + (y ** 5) / 10 - (y ** 7) / 42 + (y ** 9) / 216
+        )
+
+        return 0.5 * (1 + erf)
