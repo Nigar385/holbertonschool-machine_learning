@@ -12,10 +12,6 @@ class Normal:
     def __init__(self, data=None, mean=0., stddev=1.):
         """
         Initialize Normal distribution
-        Args:
-            data (list): list of the data to be used to estimate
-            mean (float): mean of the distribution
-            stddev (float): standard deviation of the distribution
         """
         if data is None:
             if stddev <= 0:
@@ -28,14 +24,22 @@ class Normal:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
 
-            # Calculate mean: sum(x) / n
             self.mean = float(sum(data) / len(data))
 
-            # Calculate variance: sum((x - mean)^2) / n
             sum_sq_diff = 0
             for x in data:
                 sum_sq_diff += (x - self.mean) ** 2
             variance = sum_sq_diff / len(data)
-
-            # Standard deviation: square root of variance
             self.stddev = variance ** 0.5
+
+    def z_score(self, x):
+        """
+        Calculates the z-score of a given x-value
+        """
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        """
+        Calculates the x-value of a given z-score
+        """
+        return self.mean + (z * self.stddev)
