@@ -13,8 +13,10 @@ class Exponential:
         """
         Initialize Exponential distribution
         Args:
-            data (list): list of the data to be used to estimate the distribution
-            lambtha (float): expected number of occurrences in a given timeframe
+            data (list): list of the data to be used to estimate
+                the distribution
+            lambtha (float): expected number of occurrences in a
+                given timeframe
         """
         if data is None:
             if lambtha <= 0:
