@@ -33,7 +33,7 @@ class Poisson:
             return 0
 
         e = 2.7182818285
-        
+
         # Factorial of k
         factorial = 1
         for i in range(1, k + 1):
@@ -52,15 +52,15 @@ class Poisson:
 
         e = 2.7182818285
         cdf_val = 0
-        
+
         # Sum of PMFs from 0 to k
         for i in range(k + 1):
             # Calculate factorial for each i
             factorial = 1
             for j in range(1, i + 1):
                 factorial *= j
-            
+
             # Add PMF of i to total
             cdf_val += (e ** (-self.lambtha) * (self.lambtha ** i)) / factorial
-            
+
         return cdf_val
