@@ -6,12 +6,12 @@ import pandas as pd
 
 def array(df):
     """
-    Select the last 10 rows of High and Close columns as a NumPy array.
+    Select the last 10 rows of High and Close columns.
 
     Args:
-        df: pandas DataFrame containing High and Close columns.
+        df: pandas DataFrame.
 
     Returns:
-        A NumPy ndarray containing the selected values.
+        numpy.ndarray of the selected values.
     """
-    return df[["High", "Close"]].tail(10).to_numpy()
+    return df[["High", "Close"]].tail(10).values
