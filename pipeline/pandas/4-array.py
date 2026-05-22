@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Module that converts selected DataFrame values to a NumPy array."""
 
-import pandas as pd
-
 
 def array(df):
     """
@@ -12,6 +10,6 @@ def array(df):
         df: pandas DataFrame.
 
     Returns:
-        numpy.ndarray of the selected values.
+        numpy.ndarray of selected values.
     """
-    return df[["High", "Close"]].tail(10).values
+    return df[["High", "Close"]].tail(10).to_numpy()
