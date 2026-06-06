@@ -10,21 +10,14 @@ import matplotlib.pyplot as plt
 def frequency():
     """
     Plots a histogram representing the frequency of student grades.
-    The bins are spaced every 10 units and bars are outlined in black.
+    The histogram splits data into 10 bins with black edge outlines.
     """
     np.random.seed(5)
     student_grades = np.random.normal(68, 15, 50)
     plt.figure(figsize=(6.4, 4.8))
 
-    # Define bins every 10 units from 0 to 100
-    bins = np.arange(0, 101, 10)
-
-    # Plot the histogram with black outlines around the bars
-    plt.hist(student_grades, bins=bins, edgecolor='black')
-
-    # Explicitly set x-axis limits and ticks to align perfectly with bins
-    plt.xlim(0, 100)
-    plt.xticks(bins)
+    # Plot histogram with 10 bins and black outlines
+    plt.hist(student_grades, bins=10, edgecolor='black')
 
     # Add labels and title
     plt.xlabel('Grades')
