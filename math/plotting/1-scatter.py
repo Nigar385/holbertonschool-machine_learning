@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-This module provides a function to plot a scatter plot of men's height vs weight
-using matplotlib.
+This module provides a function to plot a scatter plot of
+men's height vs weight using matplotlib.
 """
 import numpy as np
 import matplotlib.pyplot as plt
